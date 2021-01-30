@@ -69,7 +69,8 @@ wget https://raw.githubusercontent.com/tdcomcl/Libredte_/master/Ods/comuna.csv
 wget https://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/.pgpass
 mv .pgpass /root/.pgpass
 chmod 0600 /root/.pgpass
-systemctl restart postgresqlhttps://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/Psql_.shrphp/app/Module/Sistema/Module/General/Model/Sql/moneda.sql
+systemctl restart postgresql
+https://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/Psql_.shrphp/app/Module/Sistema/Module/General/Model/Sql/moneda.sql
 psql -U hmdte -h localhost hmdte < /var/www/html/hmdte/website/Module/Sistema/Module/General/Model/Sql/PostgreSQL/actividad_economica.sql
 psql -U hmdte -h localhost hmdte < /usr/share/sowerphp/extensions/sowerphp/app/Module/Sistema/Module/General/Module/DivisionGeopolitica/Model/Sql/PostgreSQL/division_geopolitica.sql
 psql -U hmdte -h localhost hmdte < /var/www/html/hmdte/website/Module/Dte/Model/Sql/PostgreSQL.sql
