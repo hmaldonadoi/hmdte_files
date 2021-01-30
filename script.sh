@@ -28,7 +28,7 @@ composer install
 sleep 3s
 clear
 
-wget https://raw.githubusercontent.com/tdcomcl/Libredte_/master/core.php
+wget https://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/core.php
 mv core.php /var/www/html/hmdte/website/Config/core.php
 cp /var/www/html/hmdte/website/Config/routes-dist.php /var/www/html/hmdte/website/Config/routes.php
 mkdir /var/www/html/hmdte/data/static
@@ -37,14 +37,19 @@ mkdir /var/www/html/hmdte/data/static/contribuyentes
 wget https://hmmarket.cl/hmdte/img/logo.png
 mv logo.png /var/www/html/hmdte/website/webroot/img/logo.png
 
+wget https://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/inicio.md
+mv inicio.md mv logo.png /var/www/html/hmdte/website/View/Pages/inicio.md
+
+wget https://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/EnvioBoleta.php
+mv EnvioBoleta.php mv logo.png /var/www/html/hmdte/website/Module/Dte/Utility/EnvioBoleta.php
+
+
+
 chgrp www-data /var/www/html/hmdte/data/static/contribuyentes/
 usermod -a -G www-data www-data
 chmod -R 775 /var/www/html/hmdte/data/static/contribuyentes/
 chown -R www-data:www-data /var/www/html/*
 
-
-wget https://raw.githubusercontent.com/tdcomcl/Libredte_/master/000-default.conf
-mv 000-default.conf /etc/apache2/sites-available/000-default.conf
 a2enmod rewrite
 
 systemctl restart apache2
@@ -59,16 +64,10 @@ wget https://raw.githubusercontent.com/tdcomcl/Libredte_/master/Ods/impuesto_adi
 wget https://raw.githubusercontent.com/tdcomcl/Libredte_/master/Ods/dte_tipo.csv
 wget https://raw.githubusercontent.com/tdcomcl/Libredte_/master/Ods/comuna.csv
 
-wget https://raw.githubusercontent.com/tdcomcl/Libredte_/master/.pgpass
+wget https://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/.pgpass
 mv .pgpass /root/.pgpass
 chmod 0600 /root/.pgpass
-systemctl restart postgresql
-cd /root/
-
-su - postgres -c "createdb hmdte"  #crea base de datos 
-sudo -u postgres psql -c  "create user hmdte with encrypted password '*8686&1205*';"
-psql -U hmdte -h localhost hmdte < /usr/share/sowerphp/extensions/sowerphp/app/Module/Sistema/Module/Usuarios/Model/Sql/PostgreSQL/usuarios.sql
-psql -U hmdte -h localhost hmdte < /usr/share/sowerphp/extensions/sowerphp/app/Module/Sistema/Module/General/Model/Sql/moneda.sql
+systemctl restart postgresqlhttps://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/Psql_.shrphp/app/Module/Sistema/Module/General/Model/Sql/moneda.sql
 psql -U hmdte -h localhost hmdte < /var/www/html/hmdte/website/Module/Sistema/Module/General/Model/Sql/PostgreSQL/actividad_economica.sql
 psql -U hmdte -h localhost hmdte < /usr/share/sowerphp/extensions/sowerphp/app/Module/Sistema/Module/General/Module/DivisionGeopolitica/Model/Sql/PostgreSQL/division_geopolitica.sql
 psql -U hmdte -h localhost hmdte < /var/www/html/hmdte/website/Module/Dte/Model/Sql/PostgreSQL.sql
@@ -96,8 +95,8 @@ psql -U hmdte -h localhost hmdte -c "INSERT INTO contribuyente VALUES (55555555,
 psql -U hmdte -h localhost hmdte -c "INSERT INTO contribuyente VALUES (66666666, '6', 'Sin razón social informada', 'Sin giro informado', NULL, NULL, NULL, 'Sin dirección informada', '13101', NULL, NOW());"
 
 sleep 5s
-wget https://github.com/tdcomcl/Libredte_/blob/master/script_psql.sh
-wget https://github.com/tdcomcl/Libredte_/blob/master/Psql_.sh
+wget https://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/script_pgsql.sh
+wget https://raw.githubusercontent.com/hmaldonadoi/hmdte_files/master/Psql_.sh
 ./script_psql.sh
 rm script_psql.sh
 rm Psql_.sh
