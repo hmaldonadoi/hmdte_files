@@ -1,6 +1,10 @@
 #!/bin/bash
+
+apt install software-properties-common
+add-apt-repository ppa:ondrej/php
+apt update
 apt update 
-apt-get install php php-cli php-common curl git mercurial apache2 php-gd php-imap php-curl php-soap php-mbstring php-xml npm postgresql php-pgsql libapache2-mod-php libapache2-mod-php php-intl php-symfony unzip ifstat php-zip  php-pear -y
+apt-get install php7.3 php7.3-cli php7.3-common curl git mercurial apache2 php7.3-gd php7.3-imap php7.3-curl php7.3-soap php7.3-mbstring php7.3-xml npm postgresql php7.3-pgsql php7.3-intl unzip ifstat php7.3-zip  php-pear -y
 sleep 2s
 npm install xoauth2
 pear install Mail Mail_mime Net_SMTP
