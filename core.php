@@ -17,8 +17,8 @@ ini_set('max_execution_time', 600);
 \sowerphp\core\Configure::write('page.layout', 'LibreDTE');
 
 // Textos de la página
-\sowerphp\core\Configure::write('page.header.title', 'Libredte');
-\sowerphp\core\Configure::write('page.body.title', 'Libredte');
+\sowerphp\core\Configure::write('page.header.title', 'HM MARKET');
+\sowerphp\core\Configure::write('page.body.title', 'HM MARKET');
 \sowerphp\core\Configure::write('page.footer', [
     // los créditos de LibreDTE: autor original y enlaces, se deben mantener visibles en el footer de cada página de la aplicación
     // más información en los términos y condiciones de uso en https://wiki.libredte.cl/doku.php/terminos
@@ -62,9 +62,9 @@ ini_set('max_execution_time', 600);
 // Configuración para la base de datos
 \sowerphp\core\Configure::write('database.default', array(
     'type' => 'PostgreSQL',
-    'user' => 'user_libredte',
-    'pass' => 'libredte*',
-    'name' => 'libredte',
+    'user' => 'hmdte',
+    'pass' => '*8686&1205*',
+    'name' => 'hmdte',
 ));
 
 // Configuración para el correo electrónico
